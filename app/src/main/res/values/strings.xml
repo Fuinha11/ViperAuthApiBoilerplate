@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">bluesilo</string>
+    <string name="app_name">Boilerplate</string>
     <string name="title_activity_login">LoginActivity</string>
 
     <!--App config strings-->
@@ -10,7 +10,4 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="login_google">Google login</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -13,7 +13,7 @@ apply plugin: 'com.google.firebase.firebase-perf'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.slb.gt.bluesilo"
+        applicationId "com.slb.gt.boilerplate"
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 1

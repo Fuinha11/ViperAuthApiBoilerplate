@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "1087795198280",
-    "firebase_url": "https://bluesilo-qa.firebaseio.com",
-    "project_id": "bluesilo-qa",
-    "storage_bucket": "bluesilo-qa.appspot.com"
+    "project_number": "1086137157493",
+    "firebase_url": "https://boilerplate-94622.firebaseio.com",
+    "project_id": "boilerplate-94622",
+    "storage_bucket": "boilerplate-94622.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1087795198280:android:347a300a022d9c7c",
+        "mobilesdk_app_id": "1:1086137157493:android:05130d4bc94090d2",
         "android_client_info": {
-          "package_name": "com.slb.gt.bluesilo"
+          "package_name": "com.slb.gt.boilerplate"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1087795198280-41lr6sq3uqtm3p2ogjc410bmkfp3t3un.apps.googleusercontent.com",
+          "client_id": "1086137157493-nt9r1unjqqdkdrolp4alrtu0de6rk1do.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB_fJVagGkzVJHqjOxKgYo9Jt8G-_LVaTw"
+          "current_key": "AIzaSyDk9nFj2KT3KUsby7q_4LGsjf2TF-uB78Y"
         }
       ],
       "services": {
