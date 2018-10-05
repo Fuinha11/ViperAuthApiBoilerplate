@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.slb.gt.bluesilo.activities.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/emailTF"
+            style="@style/CellTextView.Dark"
+            android:hint="@string/email"
+            android:enabled="true"/>
+
+        <EditText
+            android:id="@+id/passwordTF"
+            style="@style/CellTextView.Dark"
+            android:hint="@string/password"
+            android:enabled="true"/>
+
+        <Button
+            android:id="@+id/loginBtn"
+            style="@style/Button.Light"
+            android:layout_marginTop="20dp"
+            android:text="@string/login"/>
+
+        <Button
+            android:id="@+id/registerBtn"
+            style="@style/Button.Dark"
+            android:layout_marginTop="20dp"
+            android:text="@string/register"/>
+
+        <Button
+            android:id="@+id/googleLoginBtn"
+            style="@style/Button.Dark"
+            android:layout_marginTop="20dp"
+            android:text="@string/login_google"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1087795198280",
+    "firebase_url": "https://bluesilo-qa.firebaseio.com",
+    "project_id": "bluesilo-qa",
+    "storage_bucket": "bluesilo-qa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087795198280:android:347a300a022d9c7c",
+        "android_client_info": {
+          "package_name": "com.slb.gt.bluesilo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087795198280-41lr6sq3uqtm3p2ogjc410bmkfp3t3un.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_fJVagGkzVJHqjOxKgYo9Jt8G-_LVaTw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

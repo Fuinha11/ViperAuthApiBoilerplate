@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">bluesilo</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <!--App config strings-->
+    <string name="web_client_id">1087795198280-41lr6sq3uqtm3p2ogjc410bmkfp3t3un.apps.googleusercontent.com</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login_google">Google login</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
