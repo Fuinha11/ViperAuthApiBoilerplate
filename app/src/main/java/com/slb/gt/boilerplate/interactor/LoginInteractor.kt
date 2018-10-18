@@ -6,30 +6,30 @@ import org.androidannotations.annotations.EBean
 
 @EBean
 open class LoginInteractor
-    : BaseInteractor<LoginContracts.Presenter>(),
+    : BaseInteractor(),
         LoginContracts.Interactor {
 
-    override fun login(email: String, password: String) {
+    override fun login(email: String, password: String, success: () -> Unit, fail: (e: Exception) -> Unit) {
         authService.emailLogin(email, password, object : SuccessFailCallback<String, Exception> {
             override fun onSuccess(data: String) {
-                presenter.loginSuccess()
+                success()
             }
 
             override fun onFailure(data: Exception) {
-                presenter.loginFail(Exception(data))
+                fail(data)
             }
 
         })
     }
 
-    override fun register(email: String, password: String) {
+    override fun register(email: String, password: String, success: () -> Unit, fail: (e: Exception) -> Unit) {
         authService.createUser(email, password, object : SuccessFailCallback<String, Exception> {
             override fun onSuccess(data: String) {
-                presenter.registerSuccess()
+                success()
             }
 
             override fun onFailure(data: Exception) {
-                presenter.registerFail(Exception(data))
+                fail(data)
             }
 
         })

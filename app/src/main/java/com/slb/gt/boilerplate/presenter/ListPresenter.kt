@@ -3,38 +3,32 @@ package com.slb.gt.boilerplate.presenter
 import com.slb.gt.boilerplate.activities.BaseActivity
 import com.slb.gt.boilerplate.contracts.ListContracts
 import com.slb.gt.boilerplate.data.models.Driver
+import com.slb.gt.boilerplate.interactor.ListInteractor
 import com.slb.gt.boilerplate.interactor.ListInteractor_
 import com.slb.gt.boilerplate.router.ListRouter
+import org.androidannotations.annotations.Bean
+import org.androidannotations.annotations.EBean
 
-class ListPresenter
-(
-        view: ListContracts.View,
-        activity: BaseActivity<*>)
+@EBean
+open class ListPresenter
 
     : BasePresenter
 <
         ListContracts.View,
         ListContracts.Interactor,
-        ListContracts.Router>
-(
-        view,
-        activity),
+        ListContracts.Router>(),
+
         ListContracts.Presenter {
 
-    override fun initiateInteractor(): ListContracts.Interactor {
-        val i = ListInteractor_.getInstance_(activity)
-        i.initiate(activity,this)
-        return i
+    open fun initBeans(@Bean r: ListRouter, @Bean i: ListInteractor){
+        router = r
+        interactor = i
     }
 
-    override fun initiateRouter(): ListContracts.Router {
-        return ListRouter(activity)
-    }
-
-    override fun onBottonReached() {
+    override fun onBottomReached() {
         if (hasMoreData) {
             view.showLoading()
-            interactor.getMoreData()
+            interactor.getMoreData({data -> onDataReceived(data)}, {e -> onError(e)})
         }
     }
 
@@ -45,7 +39,7 @@ class ListPresenter
 
     override fun loadInitialData() {
         view.showLoading()
-        interactor.getInitialData()
+        interactor.getInitialData({data -> onDataReceived(data)}, {e -> onError(e)})
     }
 
     private var hasMoreData = true

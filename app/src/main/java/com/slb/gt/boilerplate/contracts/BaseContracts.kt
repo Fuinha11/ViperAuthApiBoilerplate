@@ -16,14 +16,13 @@ class BaseContracts {
     }
 
     interface Interactor {
-        fun initiate(activity: BaseActivity<*>, presenter: Presenter)
-        fun validateAuth()
+        fun validateAuth(success: () -> Unit, fail: ()-> Unit)
         fun logout()
     }
 
     interface Presenter {
-        fun authFail()
         fun logout()
+        fun onError(e: Exception)
     }
 
     interface Router {

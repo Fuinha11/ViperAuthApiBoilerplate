@@ -2,31 +2,30 @@ package com.slb.gt.boilerplate.presenter
 
 import com.slb.gt.boilerplate.activities.BaseActivity
 import com.slb.gt.boilerplate.contracts.LoginContracts
+import com.slb.gt.boilerplate.interactor.LoginInteractor
 import com.slb.gt.boilerplate.interactor.LoginInteractor_
 import com.slb.gt.boilerplate.router.LoginRouter
+import org.androidannotations.annotations.Bean
+import org.androidannotations.annotations.EBean
 
-open class LoginPresenter (
-        view: LoginContracts.View,
-        activity: BaseActivity<*>)
+@EBean
+open class LoginPresenter
     : BasePresenter
 <
         LoginContracts.View,
         LoginContracts.Interactor,
-        LoginContracts.Router>
-(
-        view,
-        activity),
+        LoginContracts.Router>(),
 
         LoginContracts.Presenter {
 
-    override fun login(email: String, password: String) {
-        view.showLoading("Logging you in...")
-        interactor.login(email, password)
+    open fun setBeans(@Bean r: LoginRouter, @Bean i: LoginInteractor) {
+        router = r
+        interactor = i
     }
 
-    override fun loginFail(e: Exception) {
-        view.hideLoading()
-        view.showSnackbar(e.localizedMessage)
+    override fun login(email: String, password: String) {
+        view.showLoading("Logging you in...")
+        interactor.login(email, password, {loginSuccess()}, {e -> onError(e)})
     }
 
     override fun loginSuccess() {
@@ -36,27 +35,11 @@ open class LoginPresenter (
 
     override fun register(email: String, password: String) {
         view.showLoading("Registering...")
-        interactor.register(email, password)
-    }
-
-    override fun registerFail(e: Exception) {
-        view.hideLoading()
-        view.showSnackbar(e.localizedMessage)
+        interactor.register(email, password, {registerSuccess()}, {e -> onError(e)})
     }
 
     override fun registerSuccess() {
         view.hideLoading()
         view.showSnackbar("Registrado com sucesso")
-    }
-
-
-    override fun initiateInteractor(): LoginContracts.Interactor {
-        val i = LoginInteractor_.getInstance_(activity)
-        i.initiate(activity,this)
-        return i
-    }
-
-    override fun initiateRouter(): LoginContracts.Router {
-        return LoginRouter(activity)
     }
 }

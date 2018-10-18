@@ -13,6 +13,14 @@ fun Activity.snackbar(message: String, actionName: String = "", fn: () -> Unit =
     }
 }
 
+fun Activity.snackbarWithDismiss(message: String, length: Int = Snackbar.LENGTH_LONG) {
+    val v: View = this.findViewById(android.R.id.content)
+    this.runOnUiThread {
+        val s = Snackbar.make(v, message, length)
+        s.setAction("dismiss") {s.dismiss()}.show()
+    }
+}
+
 fun Activity.hideKeyboard() {
     val imm = baseContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow((this.findViewById(android.R.id.content) as View).getWindowToken(), 0)

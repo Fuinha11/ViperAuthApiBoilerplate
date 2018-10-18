@@ -6,6 +6,7 @@ import com.slb.gt.boilerplate.presenter.LoginPresenter
 import com.slb.gt.boilerplate.ui.EnterKeyListener
 import kotlinx.android.synthetic.main.activity_login.*
 import org.androidannotations.annotations.AfterViews
+import org.androidannotations.annotations.Bean
 import org.androidannotations.annotations.Click
 import org.androidannotations.annotations.EActivity
 
@@ -14,10 +15,10 @@ import org.androidannotations.annotations.EActivity
 open class LoginActivity : BaseActivity<
         LoginContracts.Presenter>(), LoginContracts.View {
 
-    override fun initiatePresenter(): LoginContracts.Presenter {
-        return LoginPresenter(this, this)
+    @Bean
+    fun initPresenter(p: LoginPresenter) {
+        presenter = p
     }
-
 
     @AfterViews
     override fun initComponents(){

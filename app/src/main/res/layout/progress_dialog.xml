@@ -17,7 +17,7 @@
         android:padding="20dp" >
 
         <TextView
-            style="@style/SubTitleTextView.Light"
+            style="@style/Title2TextView.Light"
             android:id="@+id/progressBarHolder_message"
             android:text="@string/fui_progress_dialog_loading"
             android:textAlignment="center" />

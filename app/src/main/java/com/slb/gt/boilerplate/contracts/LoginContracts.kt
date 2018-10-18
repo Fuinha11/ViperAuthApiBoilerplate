@@ -6,15 +6,13 @@ import com.slb.gt.boilerplate.activities.LoginActivity
 class LoginContracts {
     interface View : BaseContracts.View
     interface Interactor : BaseContracts.Interactor {
-        fun login(email: String, password: String)
-        fun register(email: String, password: String)
+        fun login(email: String, password: String, success: () -> Unit, fail: (e: Exception)-> Unit)
+        fun register(email: String, password: String, success: () -> Unit, fail: (e: Exception)-> Unit)
     }
     interface Presenter : BaseContracts.Presenter {
         fun login(email: String, password: String)
-        fun loginFail(e: Exception)
         fun loginSuccess()
         fun register(email: String, password: String)
-        fun registerFail(e: Exception)
         fun registerSuccess()
     }
     interface Router : BaseContracts.Router {

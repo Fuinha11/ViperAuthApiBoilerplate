@@ -16,6 +16,7 @@ import org.androidannotations.annotations.AfterInject
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EActivity
 import org.androidannotations.annotations.UiThread
+import java.lang.Exception
 
 
 @EActivity
@@ -62,12 +63,11 @@ abstract class BaseActivity<
             this.hideKeyboard()
 
     @AfterInject
-    open fun CTA() {
-        presenter = initiatePresenter()
+    open fun validatePresenter() {
+        if (!::presenter.isInitialized)
+            throw Exception("Presenter no initialized for Activity: $this")
     }
 
     @AfterViews
     abstract fun initComponents()
-
-    abstract fun initiatePresenter(): P
 }

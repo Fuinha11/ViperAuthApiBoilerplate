@@ -9,6 +9,7 @@ import com.slb.gt.boilerplate.presenter.ListPresenter
 import com.slb.gt.boilerplate.utils.extensions.setTopBottonListener
 import com.slb.gt.boilerplate.utils.interfaces.TopBottonListener
 import kotlinx.android.synthetic.main.activity_list.*
+import org.androidannotations.annotations.Bean
 import org.androidannotations.annotations.Click
 import org.androidannotations.annotations.EActivity
 import org.androidannotations.annotations.UiThread
@@ -18,6 +19,12 @@ open class ListActivity : BaseActivity<ListContracts.Presenter>(), ListContracts
 
     var drivers: ArrayList<Driver> = arrayListOf()
     lateinit var adapter: DriverListAdapter
+
+
+    @Bean
+    open fun initPresenter(p: ListPresenter) {
+        presenter = p
+    }
 
     @UiThread
     override fun updateUi() {
@@ -31,8 +38,6 @@ open class ListActivity : BaseActivity<ListContracts.Presenter>(), ListContracts
         updateUi()
     }
 
-    override fun initiatePresenter(): ListContracts.Presenter = ListPresenter(this, this)
-
     override fun initComponents() {
         presenter.loadInitialData()
     }
@@ -45,14 +50,14 @@ open class ListActivity : BaseActivity<ListContracts.Presenter>(), ListContracts
             override fun onTopReached() {}
 
             override fun onBottonReached() {
-                presenter.onBottonReached()
+                presenter.onBottomReached()
             }
 
         })
     }
 
     @Click(R.id.logoutBtn)
-    override fun logutClick() {
+    override fun logoutClick() {
         presenter.logout()
     }
 }
